@@ -23,7 +23,7 @@ app.use('/inventario', inventario); // http://localhost:4000/inventario GET, POS
 app.use('/estadoEquipo', estadoEquipo); // http://localhost:4000/estadoEquipo GET, POST, PUT
 
 
-app.listen(4000, function() {
+app.listen(4000, function () {
     console.log('Aplicacion corriendo en el puerto 4000');
 });
 
