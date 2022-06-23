@@ -83,18 +83,4 @@ router.put('/editar/:tipoEquipoId', async function(req, res){
         }
 });
 
-// GET http://localhost:4000/tipoEquipo/id
-router.get('/:tipoEquipoId', async function (req, res) {
-    try {
-      const tipoEquipo = await TipoEquipo.findById(req.params.tipoEquipoId);
-      if (!tipoEquipo) {
-        return res.status(404).send("Tipo no existe");
-      }
-      res.send(tipoEquipo);
-    } catch (error) {
-      console.log(error);
-      res.status(500).send("Ocurrio un error al consultar tipo por Id");
-    }
-  });
-
 module.exports = router;

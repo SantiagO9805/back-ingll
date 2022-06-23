@@ -78,18 +78,4 @@ router.put('/editar/:marcaId', async function(req, res){
         }
 });
 
-// GET http://localhost:4000/marca/id
-router.get('/:marcaId', async function (req, res) {
-    try {
-      const marca = await Marca.findById(req.params.marcaId);
-      if (!marca) {
-        return res.status(404).send("Marca no existe");
-      }
-      res.send(marca);
-    } catch (error) {
-      console.log(error);
-      res.status(500).send("Ocurrio un error al consultar marca por Id");
-    }
-  });
-
 module.exports = router;

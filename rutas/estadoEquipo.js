@@ -70,19 +70,5 @@ router.put('/editar/:estadoEquipoId', async function(req, res){
         }
 });
 
-// GET http://localhost:4000/estadoEquipo/id
-router.get('/:estadoEquipoId', async function (req, res) {
-    try {
-      const estadoEquipo = await EstadoEquipo.findById(req.params.estadoEquipoId);
-      if (!estadoEquipo) {
-        return res.status(404).send("Estado no existe");
-      }
-      res.send(estadoEquipo);
-    } catch (error) {
-      console.log(error);
-      res.status(500).send("Ocurrio un error al consultar estado equipo por Id");
-    }
-  });
-
 
 module.exports = router;

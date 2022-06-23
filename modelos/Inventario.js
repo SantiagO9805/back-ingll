@@ -22,10 +22,6 @@ const InventarioSchema = Schema({
         type: Number,
         required: true,
     },
-    color: {
-        type: String,
-        required: true,
-    },
     usuario: {
         type: Schema.Types.ObjectId,
         ref: 'Usuario',

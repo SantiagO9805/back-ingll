@@ -7,7 +7,7 @@ const EstadoEquipo = require("../modelos/EstadoEquipo");
 
 const router = Router();
 
-// GET http://localhost:4000/inventario/listar
+// GET http://localhost:4000/inventario
 router.get("/listar", async function (req, res) {
   try {
     const inventarios = await Inventario.find().populate([
@@ -23,7 +23,7 @@ router.get("/listar", async function (req, res) {
   }
 });
 
-// POST http://localhost:4000/inventario/guardar
+// POST http://localhost:4000/inventario
 router.post("/guardar", async function (req, res) {
   try {
     console.log(req.body);
@@ -43,7 +43,6 @@ router.post("/guardar", async function (req, res) {
     inventario.foto = req.body.foto;
     inventario.fechaCompra = req.body.fechaCompra;
     inventario.precio = req.body.precio;
-    inventario.color = req.body.color;
     inventario.usuario = req.body.usuario._id;
     inventario.marca = req.body.marca._id;
     inventario.tipoEquipo = req.body.tipoEquipo._id;
@@ -85,7 +84,6 @@ router.put("/editar/:inventarioId", async function (req, res) {
     inventario.foto = req.body.foto;
     inventario.fechaCompra = req.body.fechaCompra;
     inventario.precio = req.body.precio;
-    inventario.color = req.body.color;
     inventario.usuario = req.body.usuario._id;
     inventario.marca = req.body.marca._id;
     inventario.tipoEquipo = req.body.tipoEquipo._id;
@@ -100,7 +98,7 @@ router.put("/editar/:inventarioId", async function (req, res) {
   }
 });
 
-// GET http://localhost:4000/inventario/id
+// PUT http://localhost:4000/inventario/editar/id
 router.get('/:inventarioId', async function (req, res) {
     try {
       const inventario = await Inventario.findById(req.params.inventarioId);

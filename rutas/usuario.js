@@ -82,18 +82,4 @@ router.put('/editar/:usuarioId', async function(req, res){
         }
 });
 
-// GET http://localhost:4000/usuario/id
-router.get('/:usuarioId', async function (req, res) {
-    try {
-      const usuario = await Usuario.findById(req.params.usuarioId);
-      if (!usuario) {
-        return res.status(404).send("usuario no existe");
-      }
-      res.send(usuario);
-    } catch (error) {
-      console.log(error);
-      res.status(500).send("Ocurrio un error al consultar usuario por Id");
-    }
-  });
-
 module.exports = router;

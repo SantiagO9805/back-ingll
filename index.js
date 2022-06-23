@@ -12,6 +12,8 @@ const usuario = require('./rutas/usuario');
 const marca = require('./rutas/marca');
 const tipoEquipo = require('./rutas/tipoEquipo');
 const estadoEquipo = require('./rutas/estadoEquipo');
+require("dotenv").config();
+const PORT = process.env.PORT || 4000;
 
 // lectura o parsep de json
 app.use(express.json());
@@ -23,8 +25,8 @@ app.use('/inventario', inventario); // http://localhost:4000/inventario GET, POS
 app.use('/estadoEquipo', estadoEquipo); // http://localhost:4000/estadoEquipo GET, POST, PUT
 
 
-app.listen(4000, function () {
-    console.log('Aplicacion corriendo en el puerto 4000');
+app.listen(PORT, function() {
+    console.log(`Aplicacion corriendo en el puerto  ${PORT}`);
 });
 
 
